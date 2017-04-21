@@ -10,5 +10,16 @@
   "homepage": "https://github.com/ericgundrum/ng-flip-card#angular-flip-card",
   "description": "A simple Material Design flip card UI built with React.",
   "private": true,
-  "main": "index.js"
+  "main": "index.js",
+  "devDependencies": {
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-plugin-react-transform": "latest",
+    "babel-preset-env": "latest",
+    "babel-preset-react": "latest",
+    "raw-loader": "latest",
+    "style-loader": "latest",
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
+  }
 }
