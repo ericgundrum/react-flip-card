@@ -1,0 +1,14 @@
+{
+  "name": "react-flip-card",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Gundrum",
+    "url": "https://ericgundrum.com"
+  },
+  "repository": "https://github.com/ericgundrum/react-flip-card.git",
+  "homepage": "https://github.com/ericgundrum/ng-flip-card#angular-flip-card",
+  "description": "A simple Material Design flip card UI built with React.",
+  "private": true,
+  "main": "index.js"
+}
