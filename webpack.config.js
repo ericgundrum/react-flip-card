@@ -12,5 +12,20 @@ module.exports = {
   output: {
     filename: 'webpack_chunk.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      options: {
+        presets: [['react'],
+         ['env', {
+           targets: { browsers:['chrome 57'] },
+           modules:false
+         }]
+      ]},
+      exclude: /node_modules/,
+      include: __dirname
+    }]
   }
 }

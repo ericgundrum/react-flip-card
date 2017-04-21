@@ -24,5 +24,9 @@
     "style-loader": "latest",
     "webpack": "latest",
     "webpack-dev-server": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest"
   }
 }
