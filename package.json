@@ -26,7 +26,9 @@
     "webpack-dev-server": "latest"
   },
   "dependencies": {
+    "material-ui": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-tap-event-plugin": "latest"
   }
 }
