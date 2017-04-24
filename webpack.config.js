@@ -14,6 +14,14 @@ module.exports = {
     filename: 'webpack_chunk.js',
     path: path.resolve(__dirname, 'dist')
   },
+  plugins: [
+    function() {
+      this.plugin('watch-run', function(watching, callback) {
+        console.log('--> begin compile at ' + new Date().toLocaleTimeString())
+        callback()
+      })
+    }
+  ],
   module: {
     rules: [
     { test: /\.js$/,
