@@ -6,16 +6,20 @@ import BackIcon from 'material-ui/svg-icons/action/flip-to-front'
 import FrontIcon from 'material-ui/svg-icons/action/flip-to-back'
 import style from './flip.css'
 
-let flipped = false
+export default class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { flipped: false }
+    this.doFlip = this.doFlip.bind(this)
+  }
 
-export default () => (
-  <div className={[style.flipcontainer, flipped ? style.flip : ''].join(' ')}>
+  doFlip() { this.setState({flipped: !this.state.flipped}) }
+
+  render() { return (
+  <div className={[style.flipcontainer, this.state.flipped ? style.flip : ''].join(' ')}>
   	<div className={style.flipper}>
   		<div id='front' className={style.front}>
-        <Card style={{ maxWidth: '30em' }} onExpandChange={() => {
-          console.log('flipped:', flipped)
-          flipped=!flipped
-        }}>
+        <Card style={{ maxWidth: '30em' }} onExpandChange={this.doFlip}>
           <CardHeader
           title = 'Loaded'
           subtitle = { new Date().toLocaleTimeString() }
@@ -29,10 +33,7 @@ export default () => (
         </Card>
       </div>
       <div className={style.back}>
-        <Card style={{ maxWidth: '30em' }} onExpandChange={() => {
-          console.log('flipped:', flipped)
-          flipped=!flipped
-        }}>
+        <Card style={{ maxWidth: '30em' }} onExpandChange={this.doFlip}>
           <CardHeader
           title = 'Loaded'
           subtitle = { new Date().toLocaleTimeString() }
@@ -47,4 +48,6 @@ export default () => (
       </div>
     </div>
   </div>
-)
+  )}
+
+}
