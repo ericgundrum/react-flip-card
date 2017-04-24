@@ -1,4 +1,5 @@
 var path = require('path')
+var combineLoaders = require('webpack-combine-loaders')
 
 module.exports = {
   devServer: {
@@ -14,8 +15,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   module: {
-    rules: [{
-      test: /\.js$/,
+    rules: [
+    { test: /\.js$/,
       loader: 'babel-loader',
       options: {
         presets: [['react'],
@@ -26,6 +27,18 @@ module.exports = {
       ]},
       exclude: /node_modules/,
       include: __dirname
+    },
+    { test: /\.css$/,
+      loader: combineLoaders([
+        { loader: 'style-loader'
+        },
+        { loader: 'css-loader',
+          query: {
+            modules: true,
+            localIdentName: '[name]__[local]___[hash:base64:5]'
+          }
+        }
+      ])
     }]
   }
 }

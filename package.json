@@ -11,7 +11,7 @@
   "description": "A simple Material Design flip card UI built with React.",
   "private": true,
   "scripts": {
-    "devserve": "webpack-dev-server"
+    "devserve": "webpack-dev-server --hot"
   },
   "main": "index.js",
   "devDependencies": {
@@ -20,9 +20,11 @@
     "babel-plugin-react-transform": "latest",
     "babel-preset-env": "latest",
     "babel-preset-react": "latest",
+    "css-loader": "latest",
     "raw-loader": "latest",
     "style-loader": "latest",
     "webpack": "latest",
+    "webpack-combine-loaders": "latest",
     "webpack-dev-server": "latest"
   },
   "dependencies": {
