@@ -1,8 +1,6 @@
 /* entire container, keeps perspective */
 .flipcontainer {
 	perspective: 1000px;
-	background-color: pink;
-	height: 40em;
 }
 	/* flip the pane when hovered */
 	.flipcontainer.flip .flipper,
@@ -10,11 +8,6 @@
   .flipcontainer.hover .flipper {
 		transform: rotateY(180deg);
 	}
-
-.flipcontainer, .front, .back {
-	width: 320px;
-	height: 480px;
-}
 
 /* flip speed goes here */
 .flipper {

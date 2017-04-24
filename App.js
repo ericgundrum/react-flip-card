@@ -11,14 +11,25 @@ export default class extends React.Component {
     super(props)
     this.state = { flipped: false }
     this.doFlip = this.doFlip.bind(this)
+    this.setSize = this.setSize.bind(this)
   }
 
   doFlip() { this.setState({flipped: !this.state.flipped}) }
 
+  setSize(elm) {
+    if (elm) {
+      this.setState({
+        height: elm.getBoundingClientRect().height,
+        width: elm.getBoundingClientRect().width
+      })
+    }
+  }
+
   render() { return (
-  <div className={[style.flipcontainer, this.state.flipped ? style.flip : ''].join(' ')}>
+  <div className={[style.flipcontainer, this.state.flipped ? style.flip : ''].join(' ')}
+    style={ this.state.width ? { width: this.state.width } : {} }>
   	<div className={style.flipper}>
-  		<div id='front' className={style.front}>
+  		<div id='front' className={style.front} ref={this.setSize}>
         <Card style={{ maxWidth: '30em' }} onExpandChange={this.doFlip}>
           <CardHeader
           title = 'Loaded'
@@ -29,11 +40,14 @@ export default class extends React.Component {
           />
           <CardText>
             the void
+          <p/>
+            not quite empty
           </CardText>
         </Card>
       </div>
       <div className={style.back}>
-        <Card style={{ maxWidth: '30em' }} onExpandChange={this.doFlip}>
+        <Card style={{ maxWidth: '30em' }} onExpandChange={this.doFlip}
+          style={ this.state.height ? { height: this.state.height } : {} }>
           <CardHeader
           title = 'Loaded'
           subtitle = { new Date().toLocaleTimeString() }
