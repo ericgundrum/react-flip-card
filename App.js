@@ -37,33 +37,31 @@ export default class extends React.Component {
 
   render() { return (
   <div className={[style.flipcontainer, this.state.flipped ? style.flip : ''].join(' ')}
-    style={Object.assign( { maxWidth: '15em' },
+    style={Object.assign( { maxWidth: '20em' },
       this.state.size ? { width: this.state.size.width } : {} )}>
   	<div className={style.flipper}>
   		<div id='front' className={style.front} ref={this.setSize}>
         <Card onExpandChange={this.doFlip} containerStyle={ this.getSize() }>
           <CardHeader
-          title = 'Loaded'
+          title = 'Rendered'
           subtitle = { new Date().toLocaleTimeString() }
           showExpandableButton = {true}
           closeIcon = { React.createElement(FrontIcon) }
-          openIcon = { React.createElement(BackIcon) }
+          openIcon  = { React.createElement(FrontIcon) }
           />
           <CardText>
             the void
-          <p/>
-            not quite empty
           </CardText>
         </Card>
       </div>
       <div className={style.back} ref={this.setSize}>
         <Card onExpandChange={this.doFlip} containerStyle={ this.getSize() }>
           <CardHeader
-          title = 'Loaded'
+          title = 'Rendered'
           subtitle = { new Date().toLocaleTimeString() }
           showExpandableButton = {true}
           closeIcon = { React.createElement(BackIcon) }
-          openIcon = { React.createElement(FrontIcon) }
+          openIcon  = { React.createElement(BackIcon) }
           />
           <CardText>
             the void behind is more than it seems
