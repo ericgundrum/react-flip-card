@@ -7,32 +7,36 @@
     "url": "https://ericgundrum.com"
   },
   "repository": "https://github.com/ericgundrum/react-flip-card.git",
-  "bugs": { "url": "https://github.com/ericgundrum/react-flip-card/issues" },
+  "bugs": {
+    "url": "https://github.com/ericgundrum/react-flip-card/issues"
+  },
   "homepage": "https://github.com/ericgundrum/react-flip-card#react-flip-card",
   "description": "A proof-of-concept flip card UI built using React components from Material-UI",
   "private": true,
-  "keywords": [ "react" ],
+  "keywords": [
+    "react"
+  ],
   "scripts": {
     "start": "webpack-dev-server --hot"
   },
   "main": "index.js",
   "devDependencies": {
-    "babel-core": "latest",
-    "babel-loader": "latest",
-    "babel-plugin-react-transform": "latest",
-    "babel-preset-env": "latest",
-    "babel-preset-react": "latest",
-    "css-loader": "latest",
-    "raw-loader": "latest",
-    "style-loader": "latest",
-    "webpack": "latest",
-    "webpack-combine-loaders": "latest",
-    "webpack-dev-server": "latest"
+    "babel-core": "",
+    "babel-loader": "",
+    "babel-plugin-react-transform": "",
+    "babel-preset-env": "",
+    "babel-preset-react": "",
+    "css-loader": "",
+    "raw-loader": "",
+    "style-loader": "",
+    "webpack": "",
+    "webpack-combine-loaders": "",
+    "webpack-dev-server": ""
   },
   "dependencies": {
-    "material-ui": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-tap-event-plugin": "latest"
+    "material-ui": "",
+    "react": "",
+    "react-dom": "",
+    "react-tap-event-plugin": ""
   }
 }
