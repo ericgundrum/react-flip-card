@@ -2,12 +2,11 @@
 .flipcontainer {
 	perspective: 1000px;
 }
-	/* flip the pane when hovered */
-	.flipcontainer.flip .flipper,
-/*  .flipcontainer:hover .flipper, */
-  .flipcontainer.hover .flipper {
-		transform: rotateY(180deg);
-	}
+
+/* flip the pane when triggered */
+.flipcontainer.flip .flipper {
+	transform: rotateY(180deg);
+}
 
 /* flip speed goes here */
 .flipper {
