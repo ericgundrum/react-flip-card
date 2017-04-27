@@ -50,7 +50,7 @@ module.exports = {
     { test: /\.js$/,
       loader: 'babel-loader',
       options: {
-        presets: [['react'],
+        presets: ['es2015', 'react',
          ['env', {
            targets: { browsers:['chrome 57'] },
            modules: false
