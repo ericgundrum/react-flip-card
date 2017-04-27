@@ -1,5 +1,7 @@
-var path = require('path')
-var combineLoaders = require('webpack-combine-loaders')
+const path = require('path')
+const combineLoaders = require('webpack-combine-loaders')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { NoEmitOnErrorsPlugin } = require('webpack')
 
 module.exports = {
   devServer: {
@@ -15,6 +17,27 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
+    new NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      "template": "./index.html",
+      "hash": false,
+      "inject": 'body',
+      "xhtml": true,
+      "favicon": false,
+      "compile": true,
+      "minify": false,
+      "cache": true,
+      "showErrors": true,
+      "chunks": "all",
+      "excludeChunks": [],
+      "chunksSortMode": function sort(left, right) {
+        let leftIndex = entryPoints.indexOf(left.names[0])
+        let rightindex = entryPoints.indexOf(right.names[0])
+        if (leftIndex > rightindex) { return 1 }
+        else if (leftIndex < rightindex) { return -1 }
+        else { return 0 }
+      }
+    }),
     function() {
       this.plugin('watch-run', function(watching, callback) {
         console.log('--> begin compile at ' + new Date().toLocaleTimeString())
@@ -30,7 +53,7 @@ module.exports = {
         presets: [['react'],
          ['env', {
            targets: { browsers:['chrome 57'] },
-           modules:false
+           modules: false
          }]
       ]},
       exclude: /node_modules/,

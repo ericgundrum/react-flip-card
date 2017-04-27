@@ -17,6 +17,7 @@
     "react"
   ],
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server --hot"
   },
   "main": "index.js",
@@ -27,6 +28,7 @@
     "babel-preset-env": "",
     "babel-preset-react": "",
     "css-loader": "",
+    "html-webpack-plugin": "",
     "raw-loader": "",
     "style-loader": "",
     "webpack": "",
