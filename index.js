@@ -11,6 +11,6 @@ console.log('*\\o/*')
 injectTapEventPlugin()
 
 render(
-  React.createElement( MuiThemeProvider, null, React.createElement(App) ),
+  React.createElement(MuiThemeProvider, null, React.createElement(App)),
   document.getElementById('root')
 )

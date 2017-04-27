@@ -19,27 +19,20 @@ module.exports = {
   plugins: [
     new NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./index.html",
-      "hash": false,
-      "inject": 'body',
-      "xhtml": true,
-      "favicon": false,
-      "compile": true,
-      "minify": false,
-      "cache": true,
-      "showErrors": true,
-      "chunks": "all",
-      "excludeChunks": [],
-      "chunksSortMode": function sort(left, right) {
-        let leftIndex = entryPoints.indexOf(left.names[0])
-        let rightindex = entryPoints.indexOf(right.names[0])
-        if (leftIndex > rightindex) { return 1 }
-        else if (leftIndex < rightindex) { return -1 }
-        else { return 0 }
-      }
+      'template': './index.html',
+      'hash': false,
+      'inject': 'body',
+      'xhtml': true,
+      'favicon': false,
+      'compile': true,
+      'minify': false,
+      'cache': true,
+      'showErrors': true,
+      'chunks': 'all',
+      'excludeChunks': []
     }),
-    function() {
-      this.plugin('watch-run', function(watching, callback) {
+    function () {
+      this.plugin('watch-run', function (watching, callback) {
         console.log('--> begin compile at ' + new Date().toLocaleTimeString())
         callback()
       })
@@ -47,29 +40,30 @@ module.exports = {
   ],
   module: {
     rules: [
-    { test: /\.js$/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['es2015', 'react',
-         ['env', {
-           targets: { browsers:['chrome 57'] },
-           modules: false
-         }]
-      ]},
-      exclude: /node_modules/,
-      include: __dirname
-    },
-    { test: /\.css$/,
-      loader: combineLoaders([
-        { loader: 'style-loader'
+      { test: /\.js$/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'react',
+            ['env', {
+              targets: { browsers: ['chrome 57'] },
+              modules: false
+            }]
+          ]
         },
-        { loader: 'css-loader',
-          query: {
-            modules: true,
-            localIdentName: '[name]__[local]___[hash:base64:5]'
+        exclude: /node_modules/,
+        include: __dirname
+      },
+      { test: /\.css$/,
+        loader: combineLoaders([
+          { loader: 'style-loader'
+          },
+          { loader: 'css-loader',
+            query: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
           }
-        }
-      ])
-    }]
+        ])
+      }]
   }
 }
