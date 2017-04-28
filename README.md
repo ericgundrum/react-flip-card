@@ -39,7 +39,11 @@ This css animation magic is described in more detail by David Walsh in
 ## Customizing
 The critical elements of this technique are the `<div>` hierarchy and their styles.
 The width of the root `<div>` must be accurate for a nice flip.
-Its `maxWidth` property is set small for this demo but can be adjusted or removed.
+
+The content for `Front` and `Back` is described in `Content.js`.
+These can be anything as long as the element size is stable or
+can be set with `props.getSize()`.
+This demo uses a constant `maxWidth` to to keep the cards small.
 
 The content of the `Card` components can be anything supported by a
 [Material-UI Card](http://www.material-ui.com/#/components/card).
@@ -47,8 +51,8 @@ The _expander button_ provides the flip trigger, with the
 icons set in the `Card Header` components.
 This button can be anywhere that _Material-UI Card_ supports.
 
-Even the `Card` components can be replaced as long as
-the element size is stable or can be set with `getSize()`
+The `Card` components can be replaced as long as
+the element size is stable or can be set with `props.getSize()`
 as is done in the `Card` component property `containerStyle={ this.getSize() }`.
 This ensures the front and back have the same size.
 
