@@ -1,6 +1,6 @@
 {
   "name": "react-flip-card",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": {
     "name": "Eric Gundrum",
@@ -32,6 +32,7 @@
     "html-webpack-plugin": "",
     "raw-loader": "",
     "style-loader": "",
+    "val-loader": "",
     "webpack": "",
     "webpack-combine-loaders": "",
     "webpack-dev-server": ""

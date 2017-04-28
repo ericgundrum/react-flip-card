@@ -5,6 +5,7 @@ import CardText from 'material-ui/Card/CardText'
 import BackIcon from 'material-ui/svg-icons/action/flip-to-front'
 import FrontIcon from 'material-ui/svg-icons/action/flip-to-back'
 import style from './flip.css'
+import cp from './colophon.js'
 
 export default class extends React.Component {
   constructor (props) {
@@ -35,39 +36,57 @@ export default class extends React.Component {
     }})
   }
 
+  blank () { return (<span>&nbsp;</span>) }
+  copyright () {
+    return (
+      <div>
+        Copyright &copy;{cp.year} {' '}
+        <a target='_blank' href={cp.author.url}>{cp.author.name}</a>
+      </div>
+    )
+  }
+
   render () {
     return (
       <div className={[style.flipcontainer, this.state.flipped ? style.flip : ''].join(' ')}
-        style={Object.assign({maxWidth: '20em'},
+        style={Object.assign({maxWidth: '24em'},
           this.state.size ? {width: this.state.size.width} : {})}>
         <div className={style.flipper}>
           <div id='front' className={style.front} ref={this.setSize}>
             <Card onExpandChange={this.doFlip} containerStyle={this.getSize()}>
               <CardHeader
-                title='Rendered'
-                subtitle={new Date().toLocaleTimeString()}
+                title='Flip Card'
+                subtitle={'rendered ' + new Date().toLocaleTimeString()}
                 showExpandableButton
                 closeIcon={React.createElement(FrontIcon)}
                 openIcon={React.createElement(FrontIcon)}
               />
               <CardText>
-                the void
+                {cp.description} {' '}
+                <a target='_blank' href={cp.homepage} alt='more info' style={{opacity: '.7'}}>
+                  <img src='external-link.svg' width='12' />
+                </a>
               </CardText>
             </Card>
           </div>
           <div className={style.back} ref={this.setSize}>
             <Card onExpandChange={this.doFlip} containerStyle={this.getSize()}>
               <CardHeader
-                title='Rendered'
-                subtitle={new Date().toLocaleTimeString()}
+                title={this.copyright()}
+                subtitle={this.blank()}
                 showExpandableButton
                 closeIcon={React.createElement(BackIcon)}
                 openIcon={React.createElement(BackIcon)}
               />
               <CardText>
-                the void behind is more than it seems
-                <p />
-                yet just enough
+                version {cp.version}<br />
+                build {cp.build.rev} ({cp.build.branch})
+                {cp.build.clean ? '' : ' modified'}<br />
+                usage and <a target='_blank' href={cp.source}>source code</a>
+                {' '} governed by the {' '}
+                <a target='_blank' href={'https://spdx.org/licenses/' + cp.license + '.html'}>
+                  {cp.license} license
+                </a>
               </CardText>
             </Card>
           </div>

@@ -40,6 +40,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: require.resolve('./colophon.js'),
+        loader: 'val-loader'
+      },
       { test: /\.js$/,
         loader: 'babel-loader',
         options: {

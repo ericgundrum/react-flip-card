@@ -58,3 +58,8 @@ to manage dependencies. To get started
 - `yarn install`
 - `yarn run start`
 - browse `http://localhost:9000/`
+
+## License
+Copyright (c)2017 [Eric Gundrum](https://ericgundrum.com)
+
+Usage and source code governed by the [MIT License](https://spdx.org/licenses/MIT.html)
