@@ -51,10 +51,8 @@ The _expander button_ provides the flip trigger, with the
 icons set in the `Card Header` components.
 This button can be anywhere that _Material-UI Card_ supports.
 
-The `Card` components can be replaced as long as
-the element size is stable or can be set with `props.getSize()`
-as is done in the `Card` component property `containerStyle={ this.getSize() }`.
-This ensures the front and back have the same size.
+The `Card` components can be replaced, but the front and back containers should be the same size.
+Code a fixed value or use`props.getSize()` in a style property. For a `Card`, use `containerStyle={this.getSize()}`.
 
 ## Building
 This project uses [yarn](https://yarnpkg.com)

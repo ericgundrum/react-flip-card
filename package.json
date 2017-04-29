@@ -11,7 +11,7 @@
     "url": "https://github.com/ericgundrum/react-flip-card/issues"
   },
   "homepage": "https://github.com/ericgundrum/react-flip-card#react-flip-card",
-  "description": "A proof-of-concept flip card UI built using React components from Material-UI",
+  "description": "A proof-of-concept flip card UI built using React components from Material-UI.",
   "private": true,
   "keywords": [
     "react"
