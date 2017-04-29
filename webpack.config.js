@@ -44,6 +44,10 @@ module.exports = {
         test: require.resolve('./colophon.js'),
         loader: 'val-loader'
       },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader'
+      },
       { test: /\.js$/,
         loader: 'babel-loader',
         options: {

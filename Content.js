@@ -5,6 +5,7 @@ import CardText from 'material-ui/Card/CardText'
 import BackIcon from 'material-ui/svg-icons/action/flip-to-front'
 import FrontIcon from 'material-ui/svg-icons/action/flip-to-back'
 import cp from './colophon.js'
+import link from './external-link.svg'
 
 const maxWidth = {maxWidth: '24em'}
 
@@ -21,7 +22,7 @@ export function Front (props) {
       <CardText>
         {cp.description} {' '}
         <a target='_blank' href={cp.homepage} alt='more info' style={{opacity: '.7'}}>
-          <img src='external-link.svg' width='12' />
+          <img src={link} width='12' />
         </a>
       </CardText>
     </Card>

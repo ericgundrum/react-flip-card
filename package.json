@@ -32,6 +32,7 @@
     "html-webpack-plugin": "",
     "raw-loader": "",
     "style-loader": "",
+    "url-loader": "",
     "val-loader": "",
     "webpack": "",
     "webpack-combine-loaders": "",
