@@ -8,7 +8,7 @@ module.exports = function (opt) {
       author: pkg.author,
       build: {
         branch: spawn('git', [ 'branch' ]).stdout.toString().split('* ', 2)[1].split('\n', 1)[0],
-        clean: spawn('git', [ 'status' ]).stdout.toString().length === 0,
+        clean: spawn('git', [ 'status' ]).stdout.toString().endsWith('clean\n'),
         rev: spawn('git', [ 'rev-parse', 'HEAD' ]).stdout.toString().slice(0, 8)
       },
       description: pkg.description,
